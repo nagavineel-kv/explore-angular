@@ -8,5 +8,12 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('explore-angular');
+  count = signal(0);
+  increase(){
+    this.count.update((value) => value + 1);
+  }
+  decrease(){
+    this.count.update((value) => value - 1);
+  }
+  
 }
