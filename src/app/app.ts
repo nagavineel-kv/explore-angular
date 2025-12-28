@@ -1,19 +1,16 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, linkedSignal, signal, effect } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ProfilePhoto } from "./profile-photo/profile-photo";
+import { AccountSettings } from "./account-settings/account-settings";
+
+
+type Doctor = { id: number; name: string; speciality: string };
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, AccountSettings],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  count = signal(0);
-  increase(){
-    this.count.update((value) => value + 1);
-  }
-  decrease(){
-    this.count.update((value) => value - 1);
-  }
-  
 }
